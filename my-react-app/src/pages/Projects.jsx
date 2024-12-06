@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ProjectCard from '../components/ProjectCard';
+import ProjectCard from '../components/ProjectCard'; // Assuming this is your project card component
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -19,7 +19,12 @@ const Projects = () => {
       {projects.length > 0 ? (
         <div className="projects-list">
           {projects.map((project) => (
-            <ProjectCard key={project.id} name={project.name} url={project.html_url} />
+            <ProjectCard
+              key={project.id}
+              name={project.name}
+              url={project.html_url}
+              image={project.owner.avatar_url} 
+            />
           ))}
         </div>
       ) : (
