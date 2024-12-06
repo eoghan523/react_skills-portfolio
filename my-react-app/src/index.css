@@ -1,68 +1,268 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
-  margin: 0;
+  font-family: Arial, sans-serif;
+  padding: 0;
+  background-color: #a4c1c2;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;  /* Ensure the body takes up the full height of the screen */
+  margin: 0;
+}
+body, html {
+  height: 100%;
+  margin: 0;
 }
 
+main {
+  flex: 1;
+    min-height: 80vh; /* Ensures that content takes up at least 80% of the viewport height */
+  }
+  
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  text-align: center;
+    font-size: 3rem;
+    font-weight: 700; /* Bold weight */
+    color: #060401; /* Dark color for good contrast */
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    letter-spacing: 1px; 
+    text-transform: uppercase; 
+    font-family: 'Arial', sans-serif; 
+  }
+
+h2 {
+  justify-content: center;
+  text-align: center;
+}
+h2 {
+  font-size: 2rem; /* Medium font size */
+  font-weight: 600; /* Semi-bold weight */
+  color: #444; /* Lighter shade of black for contrast */
+  text-align: center; /* Center-align the subheading */
+  margin-top: 15px; 
+  margin-bottom: 15px; 
+  letter-spacing: 0.5px; /* Slightly increased letter spacing */
+  font-family: 'Arial', sans-serif; 
 }
 
-button {
+header {
+  background-color: #163136;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  justify-content: space-around;
+}
+
+header nav ul {
+  list-style-type: none;
+  padding: 0;
+  justify-content: space-evenly;
+}
+
+header nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+
+footer {
+  background-color: #868383;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  margin-top: auto;  /* Push footer to the bottom */
+
+}
+footer {
+  background-color: #1e3c41; 
+  color: #fff; /* Light text color */
+  padding: 20px 0; /* Top and bottom padding */
+  position: relative; /* Ensures it behaves normally in the flow */
+  width: 100%;
+  bottom: 0;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+footer a {
+  color: #fff; /* White text color for the link */
+  text-decoration: none; /* Remove underline */
+  margin-top: 10px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center; /* Align text and icon */
+  gap: 8px;
+}
+
+footer a:hover {
+  color: #007BFF; /* text color on hover */
+}
+
+footer img {
+  margin-right: 8px; /* Space between the icon and the text */
+}
+
+.project-card, .gallery-card {
+  padding: 20px;
+  margin: 10px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: white;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.projects-list, .gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Automatically adjusts columns */
+  gap: 20px;  /* Space between the project cards */
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;  /* Max width for large screens */
+}
+
+/* Individual Project Card */
+.project-card {
+  background-color: #fff;
+  border: 1px solid #ddd;  /* Light border around the card */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;  /* Ensures images cover the card area without distortion */
+}
+
+.project-card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.project-card a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.project-card a:hover {
+  background-color: #0056b3;  /* Darker blue on hover */
+}
+
+/* Hover effects for project cards */
+.project-card:hover {
+  transform: translateY(-10px);  /* Lift the card  on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* Default to 3 columns on large screens */
+  gap: 20px;  /* Space between the images */
+  padding: 0 10px;
+  margin: 0 auto;
+  max-width: 1200px;  /* Max width of the gallery */
+}
+
+/* Gallery Card */
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Ensure images cover the whole container */
+  transition: transform 0.3s ease;
+}
+
+.gallery-card img:hover {
+  transform: scale(1.1);  /* Zoom effect on hover */
+}
+
+
+.home-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
-  a:hover {
-    color: #747bff;
+
+.home-page-content {
+  padding: 20px;
+}
+
+
+
+
+
+/* ----------------------------------- RESPONSIVE DESIGN-----------------------------------*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);  /* Two columns for tablet-sized screens */
+    gap: 15px;
   }
-  button {
-    background-color: #f9f9f9;
+  h1 {
+    font-size: 2.5rem; /* Slightly smaller font size on mobile */
+  }
+
+  h2 {
+    font-size: 2rem;  /* Medium font size for the heading */
+    margin-top: 20px;
   }
 }
+
+/* Larger Screens - Three Columns Layout */
+@media (min-width: 1025px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);  /* Default to 3 columns on large screens */
+    gap: 20px;
+  }
+
+
+  h2 {
+    font-size: 2.5rem;  /* Larger font size for the heading */
+    margin-top: 30px;
+  }
+}
+/*--------------------------------------------------------------------------------------------------------------------*/
+
